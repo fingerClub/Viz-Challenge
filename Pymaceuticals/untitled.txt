@@ -1,0 +1,15 @@
+duplicates = df[df.duplicated(['mouse_id', 'observation_time'], keep=False)]
+dup = duplicates["Mouse ID"].unique()
+cleaned_data = merged_data[~merged_data['Mouse ID'].isin(duplicate_mice)]
+
+grouped_data = df.groupby('group_column').agg({
+    'numerical_column1': 'mean',   # Apply the mean function to numerical_column1
+    'numerical_column2': ['sum', 'min', 'max'],  # Apply sum, min, and max functions to numerical_column2
+})
+
+grouped_data = df.groupby('group_column').agg({
+    'numerical_column1': 'mean',   # Apply the mean function to numerical_column1
+    'numerical_column2': ['sum', 'min', 'max'],  # Apply sum, min, and max functions to numerical_column2
+})
+plt.xticks(rotation=45)
+autopct='%1.1f%%'
